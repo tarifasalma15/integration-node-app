@@ -88,10 +88,19 @@ jobs:
          docker-compose down
 
 
-      # 13. Build and push Docker images using docker-compose
-      - name: Build and Push Docker Images
-        run: |
-         docker-compose -f docker-compose.yml build
-         docker-compose -f docker-compose.yml push
+    #   # 13. Build and push Docker images using docker-compose
+    #   - name: Build and Push Docker Images
+    #     run: |
+    #      docker-compose -f docker-compose.yml build
+    #      docker-compose -f docker-compose.yml push
 
-      
+        # 4. Build Docker Image
+      - name: Build Docker Image
+        run: |
+            docker build -t tarifasalma/integration-node-app:latest .
+
+        # 5. Push Docker Image to Docker Hub
+      - name: Push Docker Image
+        run: |
+            docker push tarifasalma/integration-node-app:latest
+            
