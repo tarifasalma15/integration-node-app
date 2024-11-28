@@ -42,8 +42,7 @@ jobs:
 
       # 6. Merge dev into main if tests pass
       - name: Merge dev into main
-        uses: devmasx/merge-branch@v1.3.0
-        with:
-          type: now
-          source: dev
-          destination: main
+        run: |
+          git checkout main
+          git merge --no-ff dev
+          git push origin main
