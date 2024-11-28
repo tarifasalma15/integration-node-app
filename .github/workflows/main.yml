@@ -30,25 +30,25 @@ jobs:
           npm install
 
       
-      # 3. Install dependencies for frontend
+      # 4. Install dependencies for frontend
       - name: Install E2E dependencies
         run: |
           cd e2e
           npm install
 
-      # 4. Run unit tests for backend
+      # 5. Run unit tests for backend
       - name: Run backend unit tests
         run: |
           cd backend
           npm test
 
-      # 5. Run unit tests for frontend
+      # 6. Run unit tests for frontend
       - name: Run frontend unit tests
         run: |
           cd frontend
           npm test
 
-      # 6. Run unit tests for E2E
+      # 7. Run unit tests for E2E
       - name: Run e2e unit tests
         run: |
           cd e2e-tests
