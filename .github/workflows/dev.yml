@@ -47,4 +47,3 @@ jobs:
           type: now
           source: dev
           destination: main
-          github_token: ${{ secrets.PERSONAL_TOKEN }}
