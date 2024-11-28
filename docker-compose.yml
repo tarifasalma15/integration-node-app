@@ -24,7 +24,7 @@ services:
     environment:
       - MONGO_URL=mongodb://mongodb:27017/reverse_todo
 
-    image: tarifasalma/integration-node-app-backend:latest
+    image: tarifasalma/integration-node-app:latest
 
     networks:
       - app-network
@@ -41,7 +41,7 @@ services:
       - "3000:5000"
     depends_on:
       - backend
-    image: tarifasalma/integration-node-app-frontend:latest
+    image: tarifasalma/integration-node-app:latest
 
     networks:
       - app-network
