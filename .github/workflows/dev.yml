@@ -1,0 +1,48 @@
+name: CI/CD for dev branch
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # 2. Install dependencies for backend
+      - name: Install backend dependencies
+        run: |
+          cd backend
+          npm install
+
+      # 3. Install dependencies for frontend
+      - name: Install frontend dependencies
+        run: |
+          cd frontend
+          npm install
+
+      # 4. Run unit tests for backend
+      - name: Run backend unit tests
+        run: |
+          cd backend
+          npm test
+
+      # 5. Run unit tests for frontend
+      - name: Run frontend unit tests
+        run: |
+          cd frontend
+          npm test
+
+      # 6. Merge dev into main if tests pass
+      - name: Merge dev into main
+        uses: devmasx/merge-branch@v1.6.0
+        with:
+          type: now
+          source: dev
+          destination: main
+          token: ${{ secrets.GITHUB_TOKEN }}
