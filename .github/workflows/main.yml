@@ -18,6 +18,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      # 2. Set up Docker
+      - name: Set up Docker
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y docker-compose
+
+
       # 2. Install dependencies for backend
       - name: Install backend dependencies
         run: |
@@ -49,7 +56,13 @@ jobs:
           cd frontend
           npm test
 
-      # 7. Run unit tests for E2E
+      # 7. Build and run Docker containers
+      - name: Build and run Docker containers
+        run: |
+          docker-compose up --build -d
+
+
+      # 8. Run unit tests for E2E
       - name: Run e2e unit tests
         run: |
          docker-compose up --build -d
@@ -57,5 +70,10 @@ jobs:
           cd e2e-tests
           npm test
           docker-compose down 
+
+     # 9. Stop and clean up Docker containers
+      - name: Stop and clean up
+        run: |
+         docker-compose down
 
       
