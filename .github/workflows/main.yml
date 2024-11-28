@@ -34,7 +34,7 @@ jobs:
       - name: Install E2E dependencies
         run: |
           cd e2e-tests
-          npm install
+          npm install selenium-webdriver
 
       # 5. Run unit tests for backend
       - name: Run backend unit tests
