@@ -45,4 +45,4 @@ jobs:
           type: now
           source: dev
           destination: main
-          token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.PERSONAL_TOKEN }}
