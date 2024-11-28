@@ -40,7 +40,7 @@ jobs:
 
       # 6. Merge dev into main if tests pass
       - name: Merge dev into main
-        uses: devmasx/merge-branch@v1.6.0
+        uses: devmasx/merge-branch@v1.3.0
         with:
           type: now
           source: dev
