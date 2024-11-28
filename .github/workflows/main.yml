@@ -30,10 +30,10 @@ jobs:
           npm install
 
       
-      # 4. Install dependencies for frontend
+      # 4. Install dependencies for E2E
       - name: Install E2E dependencies
         run: |
-          cd e2e
+          cd e2e-tests
           npm install
 
       # 5. Run unit tests for backend
